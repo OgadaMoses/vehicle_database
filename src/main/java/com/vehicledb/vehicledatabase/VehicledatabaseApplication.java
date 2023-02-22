@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class VehicledatabaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VehicledatabaseApplication.class, args);
+		SpringApplication.run
+		(VehicledatabaseApplication.class, args);
 	}
 
 }
