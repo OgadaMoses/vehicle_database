@@ -48,11 +48,7 @@
 		</dependency>
 		
 		<!-- add javax persistence libraries -->
-		<dependency> 
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>2.2</version>
-		</dependency>
+		
 		
 	</dependencies>
 
