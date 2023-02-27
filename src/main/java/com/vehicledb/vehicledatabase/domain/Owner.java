@@ -1,9 +1,13 @@
 package com.vehicledb.vehicledatabase.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -43,5 +47,18 @@ public class Owner {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	
+	// add relationship between owner and vehicle
+	@OneToMany (cascade=CascadeType.ALL, mappedBy="owner")
+	
+	private List<Vehicle> vehicles;
+
+	public List<Vehicle> getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(List<Vehicle> vehicles) {
+		this.vehicles = vehicles;
 	}
 }
