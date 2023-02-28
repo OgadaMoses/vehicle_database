@@ -16,7 +16,11 @@ public class Vehicle {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	public Vehicle(String brand, String model, String color, String registerNumber, int vyear, int price) {
+	public Vehicle () {
+		// default constructor with no arguments 
+	}
+	
+	public Vehicle(String brand, String model, String color, String registerNumber, int vyear, int price, Owner owner) {
 		super();
 		this.brand = brand;
 		this.model = model;
@@ -24,7 +28,9 @@ public class Vehicle {
 		this.registerNumber = registerNumber;
 		this.vyear = vyear;
 		this.price = price;
+		this.owner = owner;
 	}
+	
 	public long getId() {
 		return id;
 	}
