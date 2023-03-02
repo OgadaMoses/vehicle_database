@@ -9,8 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler" })
+
 public class Owner {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -50,6 +55,7 @@ public class Owner {
 	}
 	
 	// add relationship between owner and vehicle
+	@JsonIgnore
 	@OneToMany (cascade=CascadeType.ALL, mappedBy="owner")
 	
 	private List<Vehicle> vehicles;
