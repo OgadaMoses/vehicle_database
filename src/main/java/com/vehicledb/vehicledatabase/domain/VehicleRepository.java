@@ -8,7 +8,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
 
-@RepositoryRestResource
+@RepositoryRestResource(exported = false)
 public interface VehicleRepository extends CrudRepository<Vehicle, Long> {
 	// Fetch vehicles by brand
 	List<Vehicle> findByBrandAndModel(@Param ("brand") String brand, @Param("model") String model);

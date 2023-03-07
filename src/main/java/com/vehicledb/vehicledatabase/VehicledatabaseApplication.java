@@ -9,15 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.core.userdetails.User;
 
 import com.vehicledb.vehicledatabase.domain.Owner;
 import com.vehicledb.vehicledatabase.domain.OwnerRepository;
+import com.vehicledb.vehicledatabase.domain.UserRepository;
 import com.vehicledb.vehicledatabase.domain.Vehicle;
 import com.vehicledb.vehicledatabase.domain.VehicleRepository;
 
 @SpringBootApplication
 public class VehicledatabaseApplication implements CommandLineRunner {
-	
+	@Autowired
+	private UserRepository urepository;
 	private static final Logger logger = LoggerFactory.getLogger(VehicledatabaseApplication.class);
 	
 	@Autowired 
@@ -51,8 +54,13 @@ public class VehicledatabaseApplication implements CommandLineRunner {
 		repository.saveAll(Arrays.asList (vehicle1,vehicle2,vehicle3, vehicle4,vehicle5));
 		
 		for (Vehicle vehicle :repository.findAll()) {
-			logger.info(vehicle.getBrand () + " " +
+		logger.info(vehicle.getBrand () + " " +
 		vehicle.getModel());
+			
 		}
 	}
+	
+	
 }
+
+
