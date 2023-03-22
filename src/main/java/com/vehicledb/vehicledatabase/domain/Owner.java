@@ -1,6 +1,7 @@
 package com.vehicledb.vehicledatabase.domain;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,6 +22,7 @@ public class Owner {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long ownerid;
 	private String firstname, lastname;
+	
 	
 	public Owner () { }
 	
@@ -57,7 +59,6 @@ public class Owner {
 	// add relationship between owner and vehicle
 	@JsonIgnore
 	@OneToMany (cascade=CascadeType.ALL, mappedBy="owner")
-	
 	private List<Vehicle> vehicles;
 
 	public List<Vehicle> getVehicles() {
@@ -66,5 +67,5 @@ public class Owner {
 
 	public void setVehicles(List<Vehicle> vehicles) {
 		this.vehicles = vehicles;
-	}
+	} 
 }

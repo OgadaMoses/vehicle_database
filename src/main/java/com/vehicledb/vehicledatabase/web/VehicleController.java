@@ -12,7 +12,7 @@ public class VehicleController {
 	@Autowired 
 	private VehicleRepository repository;
 	
-  @RequestMapping("/vehicles")
+  @RequestMapping("api/vehicles")
   public Iterable<Vehicle> getVehicles() {
 	  //Fetch and returns vehicles 
 	  return repository.findAll();

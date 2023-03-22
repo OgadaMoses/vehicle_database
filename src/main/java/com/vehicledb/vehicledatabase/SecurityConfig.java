@@ -52,8 +52,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
    }
    
    @Override 
-   protected void configure(HttpSecurity http) throws 
-    Exception {
+   protected void configure(HttpSecurity http) throws  Exception {
+	   http.csrf().disable().cors().and()
+	    .authorizeRequests().anyRequest().permitAll();
+	   /*
 	   http.csrf() .disable().cors() .and()
 	   .sessionManagement()
 	   .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and ()
@@ -63,13 +65,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	   .exceptionHandling()
 	   .authenticationEntryPoint(exceptionHandler).and ()
 	   .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+	   */
    }
    // add cross-origin resource sharing
-   @Bean
+  @Bean
    CorsConfigurationSource corsConfigurationSource () {
 	   UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 	   CorsConfiguration config = new CorsConfiguration();
-	   config.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+	   config.setAllowedOrigins(Arrays.asList("http://localhost:3000")); 
 	   config.setAllowedMethods(Arrays.asList("*"));
 	   config.setAllowedHeaders(Arrays.asList("*"));
 	   config.setAllowCredentials(false);
@@ -78,5 +81,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	  source.registerCorsConfiguration("/**", config);
 	  return source;
 	  
-   }
+   } 
 }
